@@ -1,0 +1,360 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": [
+          {
+            "element": "button",
+            "message": "Use <Button> from the design system instead of <button>."
+          }
+        ]
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/conteudo/Badge/**",
+              "components/conteudo/Card/**",
+              "components/conteudo/CaseCard/**",
+              "components/conteudo/IconBubble/**",
+              "components/conteudo/ImpactNumber/**",
+              "components/conteudo/Separator/**",
+              "components/controles/Button/**",
+              "components/controles/Toggle/**",
+              "components/controles/ToggleGroup/**",
+              "components/navegacao/FilterChips/**",
+              "components/navegacao/GlassNav/**",
+              "components/navegacao/NavigationMenu/**",
+              "components/secoes/Hero/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Outfit|Figtree))/i]",
+        "message": "Font not provided by the design system. Available: Outfit, Figtree."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:ref|className|id|style|children|variant|asChild|key|ref|className|style|children)$/]",
+        "message": "<Badge> doesn't accept that prop. Declared props: ref, className, id, style, children, variant, asChild."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:link|default|outline|secondary|ghost|destructive)$/]",
+        "message": "<Badge> variant must be one of 'link' | 'default' | 'outline' | 'secondary' | 'ghost' | 'destructive'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:ref|className|id|style|children|variant|size|asChild|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: ref, className, id, style, children, variant, size, asChild."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:link|default|outline|secondary|ghost|destructive|highlight)$/]",
+        "message": "<Button> variant must be one of 'link' | 'default' | 'outline' | 'secondary' | 'ghost' | 'destructive' | 'highlight'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:default|xs|sm|lg|icon|icon-xs|icon-sm|icon-lg|xl)$/]",
+        "message": "<Button> size must be one of 'default' | 'xs' | 'sm' | 'lg' | 'icon' | 'icon-xs' | 'icon-sm' | 'icon-lg' | 'xl'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:ref|className|id|style|children|size|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: ref, className, id, style, children, size."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:default|sm)$/]",
+        "message": "<Card> size must be one of 'default' | 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CaseCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|title|context|impact|href|className|key|ref|className|style|children)$/]",
+        "message": "<CaseCard> doesn't accept that prop. Declared props: icon, title, context, impact, href, className."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FilterChips'] > JSXAttribute > JSXIdentifier[name!=/^(?:options|value|onValueChange|key|ref|className|style|children)$/]",
+        "message": "<FilterChips> doesn't accept that prop. Declared props: options, value, onValueChange."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlassNav'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|defaultValue|dir|orientation|delayDuration|skipDelayDuration|style|className|id|children|asChild|ref|viewport|key|ref|className|style|children)$/]",
+        "message": "<GlassNav> doesn't accept that prop. Declared props: value, defaultValue, dir, orientation, delayDuration, skipDelayDuration, style, className, id, children, asChild, ref, viewport."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlassNav'] > JSXAttribute[name.name='dir'] > Literal[value!=/^(?:ltr|rtl)$/]",
+        "message": "<GlassNav> dir must be one of 'ltr' | 'rtl'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlassNav'] > JSXAttribute[name.name='orientation'] > Literal[value!=/^(?:vertical|horizontal)$/]",
+        "message": "<GlassNav> orientation must be one of 'vertical' | 'horizontal'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Hero'] > JSXAttribute > JSXIdentifier[name!=/^(?:style|className|ref|id|children|title|key|ref|className|style|children)$/]",
+        "message": "<Hero> doesn't accept that prop. Declared props: style, className, ref, id, children, title."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconBubble'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|tone|className|key|ref|className|style|children)$/]",
+        "message": "<IconBubble> doesn't accept that prop. Declared props: icon, tone, className."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconBubble'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:brand|muted)$/]",
+        "message": "<IconBubble> tone must be one of 'brand' | 'muted'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ImpactNumber'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|unit|label|key|ref|className|style|children)$/]",
+        "message": "<ImpactNumber> doesn't accept that prop. Declared props: value, unit, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavigationMenu'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|defaultValue|dir|orientation|delayDuration|skipDelayDuration|style|className|id|children|asChild|ref|viewport|key|ref|className|style|children)$/]",
+        "message": "<NavigationMenu> doesn't accept that prop. Declared props: value, defaultValue, dir, orientation, delayDuration, skipDelayDuration, style, className, id, children, asChild, ref, viewport."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavigationMenu'] > JSXAttribute[name.name='dir'] > Literal[value!=/^(?:ltr|rtl)$/]",
+        "message": "<NavigationMenu> dir must be one of 'ltr' | 'rtl'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavigationMenu'] > JSXAttribute[name.name='orientation'] > Literal[value!=/^(?:vertical|horizontal)$/]",
+        "message": "<NavigationMenu> orientation must be one of 'vertical' | 'horizontal'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Separator'] > JSXAttribute > JSXIdentifier[name!=/^(?:orientation|decorative|style|className|id|children|asChild|ref|key|ref|className|style|children)$/]",
+        "message": "<Separator> doesn't accept that prop. Declared props: orientation, decorative, style, className, id, children, asChild, ref."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Separator'] > JSXAttribute[name.name='orientation'] > Literal[value!=/^(?:vertical|horizontal)$/]",
+        "message": "<Separator> orientation must be one of 'vertical' | 'horizontal'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toggle'] > JSXAttribute > JSXIdentifier[name!=/^(?:pressed|defaultPressed|style|className|id|children|asChild|ref|variant|size|key|ref|className|style|children)$/]",
+        "message": "<Toggle> doesn't accept that prop. Declared props: pressed, defaultPressed, style, className, id, children, asChild, ref, variant, size."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toggle'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:default|outline|chip)$/]",
+        "message": "<Toggle> variant must be one of 'default' | 'outline' | 'chip'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toggle'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:default|sm|lg|pill)$/]",
+        "message": "<Toggle> size must be one of 'default' | 'sm' | 'lg' | 'pill'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleGroup'] > JSXAttribute > JSXIdentifier[name!=/^(?:type|value|defaultValue|disabled|rovingFocus|loop|orientation|dir|style|className|id|children|asChild|ref|variant|size|spacing|key|ref|className|style|children)$/]",
+        "message": "<ToggleGroup> doesn't accept that prop. Declared props: type, value, defaultValue, disabled, rovingFocus, loop, orientation, dir, style, className, id, children, asChild, ref, variant, size, spacing."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleGroup'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:single|multiple)$/]",
+        "message": "<ToggleGroup> type must be one of 'single' | 'multiple'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleGroup'] > JSXAttribute[name.name='orientation'] > Literal[value!=/^(?:vertical|horizontal)$/]",
+        "message": "<ToggleGroup> orientation must be one of 'vertical' | 'horizontal'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleGroup'] > JSXAttribute[name.name='dir'] > Literal[value!=/^(?:ltr|rtl)$/]",
+        "message": "<ToggleGroup> dir must be one of 'ltr' | 'rtl'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleGroup'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:default|outline|chip)$/]",
+        "message": "<ToggleGroup> variant must be one of 'default' | 'outline' | 'chip'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleGroup'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:default|sm|lg|pill)$/]",
+        "message": "<ToggleGroup> size must be one of 'default' | 'sm' | 'lg' | 'pill'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Badge": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": [
+          "button"
+        ]
+      },
+      "Card": {
+        "replaces": []
+      },
+      "CaseCard": {
+        "replaces": []
+      },
+      "FilterChips": {
+        "replaces": []
+      },
+      "GlassNav": {
+        "replaces": []
+      },
+      "Hero": {
+        "replaces": []
+      },
+      "IconBubble": {
+        "replaces": []
+      },
+      "ImpactNumber": {
+        "replaces": []
+      },
+      "NavigationMenu": {
+        "replaces": []
+      },
+      "Separator": {
+        "replaces": []
+      },
+      "Toggle": {
+        "replaces": []
+      },
+      "ToggleGroup": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--aspect-video",
+      "--color-red-500",
+      "--color-white",
+      "--container-2xl",
+      "--container-3xl",
+      "--container-4xl",
+      "--container-5xl",
+      "--container-6xl",
+      "--container-7xl",
+      "--container-lg",
+      "--container-md",
+      "--container-sm",
+      "--container-xl",
+      "--container-xs",
+      "--default-font-family",
+      "--default-mono-font-family",
+      "--default-transition-duration",
+      "--default-transition-timing-function",
+      "--ease-in-out",
+      "--font-sans",
+      "--font-weight-medium",
+      "--font-weight-normal",
+      "--font-weight-semibold",
+      "--leading-relaxed",
+      "--leading-snug",
+      "--leading-tight",
+      "--radius-md",
+      "--spacing",
+      "--text-2xl",
+      "--text-2xl--line-height",
+      "--text-3xl",
+      "--text-3xl--line-height",
+      "--text-4xl",
+      "--text-4xl--line-height",
+      "--text-base",
+      "--text-base--line-height",
+      "--text-lg",
+      "--text-lg--line-height",
+      "--text-sm",
+      "--text-sm--line-height",
+      "--text-xl",
+      "--text-xl--line-height",
+      "--text-xs",
+      "--text-xs--line-height",
+      "--tracking-tight",
+      "--tw-backdrop-blur",
+      "--tw-backdrop-saturate",
+      "--tw-blur",
+      "--tw-duration",
+      "--tw-ease",
+      "--tw-font-weight",
+      "--tw-leading",
+      "--tw-numeric-spacing",
+      "--tw-outline-style",
+      "--tw-ring-color",
+      "--tw-ring-shadow",
+      "--tw-shadow",
+      "--tw-tracking",
+      "--tw-translate-x"
+    ],
+    "tokenKinds": {
+      "--font-sans": "font",
+      "--color-red-500": "color",
+      "--color-white": "color",
+      "--spacing": "spacing",
+      "--container-xs": "spacing",
+      "--container-sm": "spacing",
+      "--container-md": "spacing",
+      "--container-lg": "spacing",
+      "--container-xl": "spacing",
+      "--container-2xl": "spacing",
+      "--container-3xl": "spacing",
+      "--container-4xl": "spacing",
+      "--container-5xl": "spacing",
+      "--container-6xl": "spacing",
+      "--container-7xl": "spacing",
+      "--text-xs": "font",
+      "--text-xs--line-height": "font",
+      "--text-sm": "font",
+      "--text-sm--line-height": "font",
+      "--text-base": "font",
+      "--text-base--line-height": "font",
+      "--text-lg": "font",
+      "--text-lg--line-height": "font",
+      "--text-xl": "font",
+      "--text-xl--line-height": "font",
+      "--text-2xl": "font",
+      "--text-2xl--line-height": "font",
+      "--text-3xl": "font",
+      "--text-3xl--line-height": "font",
+      "--text-4xl": "font",
+      "--text-4xl--line-height": "font",
+      "--font-weight-normal": "font",
+      "--font-weight-medium": "font",
+      "--font-weight-semibold": "font",
+      "--tracking-tight": "font",
+      "--leading-tight": "font",
+      "--leading-snug": "font",
+      "--leading-relaxed": "font",
+      "--radius-md": "radius",
+      "--ease-in-out": "other",
+      "--aspect-video": "other",
+      "--default-transition-duration": "other",
+      "--default-transition-timing-function": "other",
+      "--default-font-family": "font",
+      "--default-mono-font-family": "font",
+      "--tw-translate-x": "other",
+      "--tw-leading": "font",
+      "--tw-font-weight": "font",
+      "--tw-tracking": "font",
+      "--tw-numeric-spacing": "spacing",
+      "--tw-shadow": "shadow",
+      "--tw-ring-shadow": "shadow",
+      "--tw-ring-color": "color",
+      "--tw-blur": "other",
+      "--tw-backdrop-blur": "other",
+      "--tw-backdrop-saturate": "other",
+      "--tw-duration": "other",
+      "--tw-ease": "color",
+      "--tw-outline-style": "other"
+    },
+    "fontFamilies": [
+      "Figtree",
+      "Outfit"
+    ]
+  }
+}
